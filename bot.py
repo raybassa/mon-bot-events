@@ -13,7 +13,7 @@ async def start(update, context):
         [InlineKeyboardButton("EVENTS", callback_data='events'), InlineKeyboardButton("RETOUR", callback_data='start')],
         [InlineKeyboardButton("REDIFF", url="https://t.me/+1wIOqGBFY9s5ZTk0"), InlineKeyboardButton("DON", callback_data='don')]
     ]
-    await update.message.reply_text("LIEN SPORT
+    await update.message.reply_text("LIEN SPORT DU JOUR
 
 Choisis une option:", reply_markup=InlineKeyboardMarkup(keyboard))
 
@@ -22,7 +22,7 @@ async def button(update, context):
     await query.answer()
     
     if query.data == 'tuto':
-        text = "TUTO
+        text = "TUTO DEBROUILLE
 
 1. Anti-pub: AdGuard
 2. PPV.TO
@@ -31,17 +31,19 @@ async def button(update, context):
         await query.edit_message_text(text, reply_markup=InlineKeyboardMarkup(keyboard))
     
     elif query.data == 'events':
-        text = "EVENTS
+        text = "EVENTS 9 DEC
 
-21h PSG-OM
-17h UFC
-22h BOXE"
+FOOTBALL: 21h PSG-OM
+UFC: 17h UFC Paris
+BOXE: 22h Tyson-Usyk"
         keyboard = [[InlineKeyboardButton("RETOUR", callback_data='start')]]
         await query.edit_message_text(text, reply_markup=InlineKeyboardMarkup(keyboard))
     
     elif query.data == 'don':
-        text = "SOUTIENS"
-        keyboard = [[InlineKeyboardButton("Revolut", url="https://revolut.me/ton")], [InlineKeyboardButton("RETOUR", callback_data='start')]]
+        text = "SOUTIENS NOUS
+
+Choisis:"
+        keyboard = [[InlineKeyboardButton("Revolut", url="https://revolut.me/tonnom")], [InlineKeyboardButton("Wallet", url="https://t.me/tonbot")], [InlineKeyboardButton("RETOUR", callback_data='start')]]
         await query.edit_message_text(text, reply_markup=InlineKeyboardMarkup(keyboard))
     
     elif query.data == 'start':
@@ -50,9 +52,9 @@ async def button(update, context):
             [InlineKeyboardButton("EVENTS", callback_data='events'), InlineKeyboardButton("RETOUR", callback_data='start')],
             [InlineKeyboardButton("REDIFF", url="https://t.me/+1wIOqGBFY9s5ZTk0"), InlineKeyboardButton("DON", callback_data='don')]
         ]
-        await query.edit_message_text("LIEN SPORT
+        await query.edit_message_text("LIEN SPORT DU JOUR
 
-Choisis:", reply_markup=InlineKeyboardMarkup(keyboard))
+Choisis une option:", reply_markup=InlineKeyboardMarkup(keyboard))
 
 if __name__ == '__main__':
     application = Application.builder().token(TOKEN).build()
